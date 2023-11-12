@@ -1,6 +1,8 @@
 const axios = require('axios');
 const aqiModel = require('../models/aqiModel');
 
+
+// TODO: Revamp
 exports.getAqi = async (req, res) => {
     const { city, province } = req.params;
     let aqi = await aqiModel.getAqi(city, province);
