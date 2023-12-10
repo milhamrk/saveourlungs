@@ -10,3 +10,5 @@ exports.getAqi = async (city, province) => {
 exports.saveAqi = async (aqi) => {
     await pool.query(`INSERT INTO aqi SET ?`, aqi);
 };
+
+// 

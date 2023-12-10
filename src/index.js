@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const aqiRoutes = require('./routes/aqiRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -5,11 +7,12 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 app.use(express.json());
 
-// Use the AQI routes
-app.use(aqiRoutes);
+const apiRouter = express.Router();
 
-// Use the User routes
-app.use(userRoutes);
+apiRouter.use('/auth', userRoutes);
+apiRouter.use('/aqi', aqiRoutes);
+
+app.use('/api', apiRouter);
 
 const port = process.env.PORT || 3000;
 

@@ -8,7 +8,7 @@ const pool = new Pool({
     host: 'localhost',
     database: 'saveourlungs',
     password: 'postgres',
-    port: 5431,
+    port: 5432,
 });
 
 async function runMigrations() {
