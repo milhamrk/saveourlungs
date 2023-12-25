@@ -1,0 +1,28 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - migration-runner
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/saveourlungs
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: saveourlungs
+    ports:
+      - "5432:5432"
+
+  migration-runner:
+    build: .
+    depends_on:
+      - db
+    command: ["node", "migration-runner.js"]
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/saveourlungs
