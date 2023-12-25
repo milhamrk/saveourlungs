@@ -5,8 +5,8 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - migration-runner
       - db
+      - migration-runner
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/saveourlungs
 
