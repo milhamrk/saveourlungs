@@ -6,7 +6,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - migration-runner
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/saveourlungs
 
@@ -23,6 +22,8 @@ services:
     build: .
     depends_on:
       - db
-    command: ["node", "migration-runner.js"]
+    volumes:
+      - ./migrations:/migrations
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432/saveourlungs
+    command: ["node", "migration-runner.js"]
