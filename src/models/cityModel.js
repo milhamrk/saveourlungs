@@ -2,7 +2,7 @@ const db = require('../db');
 
 const userModel = {
     async insertCity(provinceId, cityName, cityCode) {
-        const queryText = 'INSERT INTO city (id_province, city_name, citycode) VALUES ($1, $2, $3) RETURNING id';
+        const queryText = 'INSERT INTO city (id_province, city_name, city_code) VALUES ($1, $2, $3) RETURNING id';
         const values = [provinceId, cityName, cityCode];
         const { rows } = await db.query(queryText, values);
         return rows[0].id;

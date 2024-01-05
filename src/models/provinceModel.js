@@ -15,7 +15,7 @@ const userModel = {
     },
 
     async getProvinceByCode(provinceCode) {
-        const queryText = 'SELECT * FROM province WHERE provinceCode = $1';
+        const queryText = 'SELECT * FROM province WHERE province_code = $1';
         const { rows } = await db.query(queryText, [provinceCode]);
         return rows[0];
     },
