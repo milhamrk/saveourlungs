@@ -31,7 +31,7 @@ exports.getAllCity = async (_, res) => {
 
 exports.getAllCityByProvinceId = async (req, res) => {
     try {
-        const { provinceId } = req.body;
+        const { provinceId } = req.params;
 
         const city = await cityModel.getCityByProvinceId(provinceId);
         if (city) {

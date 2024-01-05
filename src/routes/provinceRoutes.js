@@ -1,12 +1,9 @@
 const express = require('express');
-const userController = require('../controllers/provinceController');
+const provinceController = require('../controllers/provinceController');
 
 const router = express.Router();
 
-// Signup route
-router.post('/signup', userController.signup);
-
-// Login route
-router.post('/login', userController.login);
+router.get('/list', provinceController.getAllProvince);
+router.post('/insert', provinceController.insertProvince);
 
 module.exports = router;

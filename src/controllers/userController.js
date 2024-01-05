@@ -25,21 +25,22 @@ exports.signup = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
+    console.log("hoi")
     try {
         const { email, password } = req.body;
-        
+        console.log("hoi 2")
         // Check if user exists
         const user = await userModel.findUserByEmail(email);
         if (!user) {
             return res.status(400).json({ error: 'Invalid credentials' });
         }
-
+        console.log("hoi 3")
         // Check password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).json({ error: 'Invalid credentials' });
         }
-
+        console.log("hoi 4")
         // Create token
         const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
