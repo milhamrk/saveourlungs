@@ -1,4 +1,4 @@
--- DROP TABLE IF EXISTS aqi_history;
+DROP TABLE IF EXISTS aqi_history;
 
 CREATE TABLE IF NOT EXISTS aqi_history (
     id SERIAL PRIMARY KEY,

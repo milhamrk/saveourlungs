@@ -1,4 +1,4 @@
--- DROP TABLE IF EXISTS province;
+DROP TABLE IF EXISTS province;
 
 CREATE TABLE IF NOT EXISTS province (
     id SERIAL PRIMARY KEY,
