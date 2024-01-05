@@ -11,7 +11,7 @@ exports.insertProvince = async (req, res) => {
         }
         
         // Create province
-        const provinceId = await provinceModel.createUser(provinceName, provinceCode);
+        const provinceId = await provinceModel.insertProvinvce(provinceName, provinceCode);
 
         res.status(201).json({ message: 'Province insert success', provinceId });
     } catch (error) {
